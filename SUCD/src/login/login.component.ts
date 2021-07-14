@@ -8,6 +8,9 @@ import { FirebaseService } from 'src/services/firebase.service';
 })
 export class LoginComponent implements OnInit {
 
+  error: any;
+  
+
   isSignedIn=false
 
   constructor(public firebaseService: FirebaseService) { }

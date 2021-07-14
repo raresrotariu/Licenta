@@ -7,6 +7,7 @@ import { LoginComponent } from '../login/login.component';
 import { SingUpComponent } from '../sing-up/sing-up.component';
 import { FirebaseService } from 'src/services/firebase.service';
 import { HomeComponent } from '../home/home.component';
+import { MembersComponent } from '../members/members.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HomeComponent } from '../home/home.component';
     LoginComponent,
     SingUpComponent,
     HomeComponent,
+    MembersComponent,
 
   ],
   imports: [
