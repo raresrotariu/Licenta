@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFire, AutoProviders, AuthMehods } from 'angularfire2';
+import { Router } from '@angular/router';
 import { FirebaseService } from 'src/services/firebase.service';
 
 @Component({
@@ -9,23 +12,19 @@ import { FirebaseService } from 'src/services/firebase.service';
 export class LoginComponent implements OnInit {
 
   error: any;
-  
 
-  isSignedIn=false
 
-  constructor(public firebaseService: FirebaseService) { }
+  constructor(public af: AngularFireAuth,private router: Router) {
+    this.af.auth.subcribe(auth =>{
+      if(auth){
+        this.router.navigateByUrl('/members');
+      }
+    });
+  }
 
   ngOnInit() {
-    if(localStorage.getItem('user')!==null)
-    this.isSignedIn = true
-    else
-    this.isSignedIn = false
+
   }
 
-  async onSignin(email:string, password: string){
-    await this.firebaseService.signup(email,password)
-    if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
-  }
 
 }
