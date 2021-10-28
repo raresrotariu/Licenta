@@ -21,12 +21,23 @@ export class SingUpComponent implements OnInit {
   }
 
   async onSignup(email:string,password:string){
-    await this.firebaseService.signup(email,password)
+    await this.firebaseService.singup(email,password)
     console.log(email)
     console.log(password)
     if(this.firebaseService.isLoggedIn)
     this.isSignedIn = true
   }
 
+  async onSingin(email:string,password:string){
+    await this.firebaseService.singup(email,password)
+    console.log(email)
+    console.log(password)
+    if(this.firebaseService.isLoggedIn)
+    this.isSignedIn = true
+  }
+
+    handleLogout(){
+        this.isSignedIn = false
+    }
 
 }

@@ -7,19 +7,11 @@ import { LoginComponent } from '../login/login.component';
 import { SingUpComponent } from '../sing-up/sing-up.component';
 import { FirebaseService } from 'src/services/firebase.service';
 import { HomeComponent } from '../home/home.component';
-import {HttpModule} from '@angular/http';
+
 import { MembersComponent } from '../members/members.component';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyDL3wmCFclCGqHcklMh_XImLBwYqXoVEZY",
-      authDomain: "sucd-database.firebaseapp.com",
-      projectId: "sucd-database",
-      storageBucket: "sucd-database.appspot.com",
-      messagingSenderId: "1034313338206",
-      appId: "1:1034313338206:web:473760fc9916c82f6013cf",
-      measurementId: "G-C7K6JN4KH3"
-};
 
 
 @NgModule({
@@ -36,7 +28,15 @@ export const firebaseConfig = {
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyDL3wmCFclCGqHcklMh_XImLBwYqXoVEZY",
+      authDomain: "sucd-database.firebaseapp.com",
+      projectId: "sucd-database",
+      storageBucket: "sucd-database.appspot.com",
+      messagingSenderId: "1034313338206",
+      appId: "1:1034313338206:web:473760fc9916c82f6013cf",
+      measurementId: "G-C7K6JN4KH3"
+    })
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

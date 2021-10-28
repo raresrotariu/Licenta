@@ -6,11 +6,21 @@
 h1{
   padding-left:50px;
   padding-top: 50px;
-  padding-bottom: 25px; 
+  padding-bottom: 25px;
 }
 
-.first{
-  margin-left: 50px;
+
+
+body{
+	background-color: #15151E;
+	text-align: center;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 100%;
+}
+
+nav{
+  margin-top: 50px;
 }
 
 nav a {
@@ -27,10 +37,12 @@ nav a {
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
+
   nav a:hover {
     color: white;
     background-color: #42545C;
   }
+
   nav a.active {
     background-color: black;
   }

@@ -1,34 +1,41 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <br><br><br>
 
+<!--
+<h2>Test</h2>
+  <div *ngIf="!isSignedIn">
+        <input type="text" #emailSingup/>
+        <input type="text" #passwordSingup/>
+        <button (click)="onSignup(emailSingup.value,passwordSingup.value)">Sing up</button>
+        <h2>Test</h2>
+  </div>
+        <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
+-->
 <div class="container">
     <div class="row">
       <div class="col-4">
-        
+
+
       </div>
       <div class="col-4">
         <form>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address:</label>
-              <input type="email" class="form-control" #email id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" class="form-control" #emailSingup id="emailSingup" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1"  class="form-label">Password:</label>
-              <input type="password" #password class="form-control" id="exampleInputPassword1">
+              <input type="password" #passwordSingup class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-              </div>
-            <button type="submit" class="btn btn-primary" (click)= "onSignup(email.value,password.value)">Submit</button>
-            
+            <button type="submit" class="btn btn-primary" (click)="onSignup(emailSingup.value,passwordSingup.value)">Submit</button>
+
           </form>
       </div>
       <div class="col-4">
-        
+        <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth'
- 
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,39 +8,28 @@ import {AngularFireAuth} from '@angular/fire/auth'
 export class FirebaseService {
 
   isLoggedIn=false;
-  angularFireAuth: any;
 
   constructor(public firebaseAuth: AngularFireAuth) { }
-  SignUp(email: string, password: string) {
-    this.angularFireAuth
-    .auth
-    .createUserWithEmailAndPassword(email, password)
-    .then(res => {
-    console.log('You are Successfully signed up!', res);
+  async singin(email: string, password : string){
+    await this.firebaseAuth.signInWithEmailAndPassword(email,password)
+    .then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
     })
-    .catch(error => {
-    console.log('Something is wrong:', error.message);
-    });
-    }
-    
-    /* Sign in */
-    SignIn(email: string, password: string) {
-    this.angularFireAuth
-    .auth
-    .signInWithEmailAndPassword(email, password)
-    .then(res => {
-    console.log('You're in!');
+  }
+
+  async singup(email: string, password : string){
+    await this.firebaseAuth.createUserWithEmailAndPassword(email,password)
+    .then(res=>{
+      this.isLoggedIn = true
+      localStorage.setItem('user',JSON.stringify(res.user))
     })
-    .catch(err => {
-    console.log('Something went wrong:',err.message);
-    });
-    }
-    
-    /* Sign out */
-    SignOut() {
-    this.angularFireAuth
-    .auth
-    .signOut();
-    }
+  }
+
+  logout(){
+    this.firebaseAuth.signOut()
+    localStorage.removeItem('user')
+  }
+
 
 }
