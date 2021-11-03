@@ -7,10 +7,12 @@ import { LoginComponent } from '../login/login.component';
 import { SingUpComponent } from '../sing-up/sing-up.component';
 import { FirebaseService } from 'src/services/firebase.service';
 import { HomeComponent } from '../home/home.component';
-
+import {AngularFirestoreModule} from "@angular/fire/firestore"
 import { MembersComponent } from '../members/members.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { UsersService } from 'src/shared/users.service';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 
 
 
@@ -25,8 +27,11 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     HttpModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyDL3wmCFclCGqHcklMh_XImLBwYqXoVEZY",
@@ -37,8 +42,9 @@ import { HttpModule } from '@angular/http';
       appId: "1:1034313338206:web:473760fc9916c82f6013cf",
       measurementId: "G-C7K6JN4KH3"
     })
+
   ],
-  providers: [FirebaseService],
+  providers: [UsersService,FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

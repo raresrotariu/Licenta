@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sucd-database": {
+      "hosting": {
+        "SUCD": [
+          "sucd-database"
+        ]
+      }
+    }
+  }
+}
