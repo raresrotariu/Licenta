@@ -1,0 +1,64 @@
+
+*{
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.5fr;
+}
+
+h1{
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+
+.meniu{
+  margin: 10px;
+}
+
+.meniu2{
+  margin: 5px;
+  margin-top: 25px;
+}
+
+
+body{
+	background-color: #15151E;
+
+	text-align: center;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 100%;
+
+}
+
+nav{
+  margin-top: 50px;
+}
+
+.collapse1{
+  text-align: left;
+	margin-left: 50px;
+	margin-bottom: 25px;
+}
+
+.collapse2{
+  text-align: left;
+	margin-bottom: 25px;
+  margin-right: 50px;
+}
+
+.card-body h5{
+	text-align: left !important;
+}
+
+.card-body button{
+	margin-top: 25px;
+	margin-bottom: 10px;
+	width: 50%;
+  margin-left: 25%;
+}
+
+.card-body{
+	background-color: #002533 !important ;
+	color: white !important;
+}

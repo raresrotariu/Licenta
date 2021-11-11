@@ -1,0 +1,58 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.5fr;
+}
+
+.cutie{
+  width: 80%;
+  margin: auto;
+}
+
+.card-body{
+	background-color: #002533 !important ;
+	color: white !important;
+}
+
+.luna-an-card{
+	background-color: red;
+	text-align: left;
+}
+
+.luna-an-card-cutie1{
+	float: left;
+	width: 45%;
+}
+
+.luna-an-card-cutie2{
+	float: right;
+	width: 45%;
+}
+
+.plata{
+	text-align: left;
+	padding: 25px;
+	margin-top: -10px;
+	border: grey;
+	border-style: solid;
+	border-width: thin;
+	padding-bottom: 75px;
+	background-color: white;
+}
+
+.cvv{
+  text-align: left;
+}
+
+.buttonbanca{
+  width: 100%;
+
+}
+
+.buttonexit{
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 30%;
+}
+
+

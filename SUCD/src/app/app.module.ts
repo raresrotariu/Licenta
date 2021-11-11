@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AngularFireModule} from '@angular/fire'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from '../login/login.component';
-import { SingUpComponent } from '../sing-up/sing-up.component';
-import { FirebaseService } from 'src/services/firebase.service';
-import { HomeComponent } from '../home/home.component';
-import {AngularFirestoreModule} from "@angular/fire/firestore"
-import { MembersComponent } from '../members/members.component';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { UsersService } from 'src/shared/users.service';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFireModule } from '@angular/fire/compat';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { MembersComponent } from './members/members.component';
+import { SingUpComponent } from './sing-up/sing-up.component';
+import { ModalComponent } from './modal/modal.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import { UsersService } from './shared/users.service';
+import { FirebaseService } from './services/firebase.service';
+import { BankComponent } from './bank/bank.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -23,16 +31,20 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
     SingUpComponent,
     HomeComponent,
     MembersComponent,
+    ModalComponent,
+    BankComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    FormsModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    HttpModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatTableModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyDL3wmCFclCGqHcklMh_XImLBwYqXoVEZY",
       authDomain: "sucd-database.firebaseapp.com",
@@ -41,10 +53,13 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
       messagingSenderId: "1034313338206",
       appId: "1:1034313338206:web:473760fc9916c82f6013cf",
       measurementId: "G-C7K6JN4KH3"
-    })
+    }),
+    NgbModule
 
   ],
-  providers: [UsersService,FirebaseService],
+  providers: [UsersService,FirebaseService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

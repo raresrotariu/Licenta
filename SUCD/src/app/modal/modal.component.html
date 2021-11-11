@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+      <form class="modal1" [formGroup]="modal" >
+
+      <div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Nume" name="nume"  value={{data.Nume}} placeholder="Nume" value="" >
+			  <label for="floatingInput">Nume</label>
+			</div>
+
+      <div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Prenume" name="prenume"  value={{data.Prenume}} placeholder="Prenume" value="" >
+			  <label for="floatingInput">Prenume</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Email" name="prenume" value={{data.Email}} placeholder="Prenume" value="" >
+			  <label for="floatingInput">Email</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Judet" name="judet"  value={{data.Judet}} placeholder="Judet" value="" >
+			  <label for="floatingInput">Judet</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Oras" name="oras"  value={{data.Oras}} placeholder="Oras"  value="">
+			  <label for="floatingInput">Oras</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Adresa" name="adresa"  value={{data.Adresa}} placeholder="Adresa" value="" >
+			  <label for="floatingInput">Adresa</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Varsta" name="varsta"  value={{data.Varsta}} placeholder="Varsta" value="" >
+			  <label for="floatingInput">Varsta</label>
+			</div>
+
+      <div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Abonament" name="Abonament"   placeholder="Varsta" value="" hidden>
+			  <label for="floatingInput">Varsta</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" name="nrinmatriculare" placeholder="Nr. Inmatriculare" value="" >
+			  <label for="floatingInput">Nr. Inmatriculare</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" name="codmotor" placeholder="Cod Motor" value="">
+			  <label for="floatingInput">Cod Motor</label>
+			</div>
+        <form name="myform" method="post" action="">
+            <div class="form-group">
+                <div id="add_renter_footer" class="modal-footer">
+                    <button type="button" class="btn btn-secondary button" mat-dialog-close mat-button >Iesire</button>
+                    <button type="submit" class="btn btn-primary button" (click)="getData()" >Salvare</button>
+                </div>
+            </div>
+          </form>
+        </form>
+    </body>
+</html>

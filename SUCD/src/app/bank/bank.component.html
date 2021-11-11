@@ -1,0 +1,94 @@
+
+<p>bank works!</p>
+
+
+	<div class="cutie">
+	  <div class="row">
+	    <div class="col-2">
+	    </div>
+	    <div class="col-8" >
+	    	<div style="background-color: #606060; padding: 25px; margin: 0; text-align: left; color: white;">
+          <h1>Plata: {{nr}} RON</h1>
+	      </div>
+	      <div class="plata">
+	      	<h4>Order Number: 2974521</h4>
+	      	<h4>Fara descriere</h4>
+	      	<br>
+	      	<h2>Te rugam sa introduci datele cardului cu care vrei sa platesti</h2>
+	      	<br>
+	      	<h4>Numar card</h4>
+	      	<div class="form-floating mb-3">
+			  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+			  <label for="floatingInput">Introdu numarul de card</label>
+			</div>
+			<h4>Nume titular card</h4>
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+			  <label for="floatingInput">Introdu nume titular card</label>
+			</div>
+
+			<div class="luna-an-card">
+				<div class="luna-an-card-cutie1">
+					<h4>Luna expirare card</h4>
+					<div class="input-group mb-3">
+					  <select class="form-select" id="inputGroupSelect01">
+					    <option selected></option>
+					    <option value="1">1</option>
+					    <option value="2">2</option>
+					    <option value="3">3</option>
+					    <option value="4">4</option>
+					    <option value="5">5</option>
+					    <option value="6">6</option>
+					    <option value="7">7</option>
+					    <option value="8">8</option>
+					    <option value="9">9</option>
+					    <option value="10">10</option>
+					    <option value="11">11</option>
+					    <option value="12">12</option>
+					  </select>
+				    </div>
+				</div>
+				<div class="luna-an-card-cutie2">
+					<h4>An expirare card</h4>
+					<div class="input-group mb-3">
+						  <select class="form-select" id="inputGroupSelect01">
+						    <option selected></option>
+						    <option value="2021">2021</option>
+						    <option value="2022">2022</option>
+						    <option value="2023">2023</option>
+						    <option value="2024">2024</option>
+						    <option value="2025">2025</option>
+						    <option value="2026">2026</option>
+						    <option value="2027">2027</option>
+						    <option value="2028">2028</option>
+						    <option value="2029">2029</option>
+						    <option value="2030">2030</option>
+						    <option value="2031">2031</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+      <br><br><br><br>
+      <h4>CVC/CVV2</h4>
+			<div class="form-floating mb-3 cvv">
+			  <input type="text" class="form-control" id="floatingInput" placeholder="___">
+			  <label for="floatingInput">_ _ _</label>
+			</div>
+			<h4 style="color: green;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+			  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+			</svg>
+			Plata securizata</h4>
+			<button name="submit"  (click)="updateData()" class="btn btn-success buttonbanca">Plateste</button>
+      <br>
+			<button type="button" class="btn btn-danger buttonexit">Anulare</button>
+			<br><br><br>
+
+			<img src="img//Untitled-1.2.png" width="150px" height="50px" style="float: right;">
+
+	      </div>
+
+	    </div>
+	    <div class="col-2">
+	    </div>
+	  </div>
+</div>
