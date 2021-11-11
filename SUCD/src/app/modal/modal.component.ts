@@ -60,6 +60,7 @@ export class ModalComponent implements OnInit {
     console.log(this.Userobj);
     this.dataservice.updateData(this.Userobj);
     this.dialogRef.close();
+
   }
 
 

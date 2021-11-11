@@ -3,10 +3,13 @@
 
 <div >
   <div  class="action">
+    <!--
     <nav>
       <a routerLink="/app-sing-up"class="first">Creaza cont</a>
     </nav>
+  -->
 
+  <br><br><br><br>
     <h1>Log In:</h1>
 
 
@@ -25,7 +28,11 @@
                   <input type="password" class="form-control" #password id="exampleInputPassword1" placeholder="Password">
                   <label for="exampleInputPassword1" >Password:</label>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="onSingin(mail.value,password.value)">Submit</button>
+                <button type="submit" class="btn btn-primary" (click)="onSingin(mail.value,password.value)">Conectare</button>
+<br><br><br><br>
+<h3 style="color: white;">Nu ai cont?</h3>
+
+<a routerLink="/app-sing-up"class="first">Inscriete</a>
 
               </form>
           </div>

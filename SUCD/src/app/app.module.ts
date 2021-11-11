@@ -20,6 +20,7 @@ import { UsersService } from './shared/users.service';
 import { FirebaseService } from './services/firebase.service';
 import { BankComponent } from './bank/bank.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MasinaComponent } from './masina/masina.component';
 
 
 
@@ -33,6 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MembersComponent,
     ModalComponent,
     BankComponent,
+    MasinaComponent,
 
   ],
   imports: [

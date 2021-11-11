@@ -48,6 +48,10 @@ export class BankComponent implements OnInit {
     })
   }
 
+  anulare(){
+    this.router.navigate(['app-home'])
+  }
+
   pret(){
     if(history.state.da==1){
       this.nr=50

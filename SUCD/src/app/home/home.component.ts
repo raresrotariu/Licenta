@@ -12,6 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Users } from 'src/app/shared/users.model';
 import { state } from '@angular/animations';
+import { MasinaComponent } from '../masina/masina.component';
 
 
 
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit {
 
   @Output() isLogout= new EventEmitter<void>()
   constructor(public firebaseService: FirebaseService,public router:Router,
-    public firestore: AngularFirestore,public data: DataService,public dialog: MatDialog) { }
+    public firestore: AngularFirestore,public data: DataService,public dialog: MatDialog,
+    ) { }
 
 
 
@@ -74,6 +76,13 @@ export class HomeComponent implements OnInit {
     dialogConfig.disableClose=false;
     dialogConfig.data=this.merge
       this.dialog.open(ModalComponent,dialogConfig);
+  }
+
+  openModal2() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose=false;
+    dialogConfig.data=this.merge
+      this.dialog.open(MasinaComponent,dialogConfig);
   }
 
   standard(){

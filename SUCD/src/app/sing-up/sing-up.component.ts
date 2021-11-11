@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UsersService } from 'src/app/shared/users.service';
 import {Users} from 'src/app/shared/users.model'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sing-up',
@@ -13,10 +14,10 @@ import {Users} from 'src/app/shared/users.model'
 export class SingUpComponent implements OnInit {
 
   isSignedIn=false
-
+  error:any
 
   constructor(public firebaseService : FirebaseService,public usersservice: UsersService,
-    public firestore: AngularFirestore) { }
+    public firestore: AngularFirestore,public router:Router) { }
 
   ngOnInit() {
     if(localStorage.getItem('user')!==null)
@@ -26,11 +27,14 @@ export class SingUpComponent implements OnInit {
   }
 
   async onSignup(email:string,password:string){
+    this.error="Contul exista deja."
     await this.firebaseService.singup(email,password)
     console.log(email)
     console.log(password)
     if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
+    {this.isSignedIn = true
+      this.router.navigate(['app-home'])
+    }
   }
 
   async onSingin(email:string,password:string){

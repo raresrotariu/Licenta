@@ -14,10 +14,12 @@
         <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
 -->
 
+<!--
 <nav>
   <a routerLink="" class="first">Login</a>
 </nav>
-
+-->
+<br><br><br><br>
 <h1>Creaza cont:</h1>
 
 <div class="container">
@@ -36,7 +38,15 @@
               <input type="password" #passwordSingup class="form-control" id="exampleInputPassword1" placeholder="Password">
               <label for="exampleInputPassword1"  >Password:</label>
             </div>
-            <button type="submit" class="btn btn-primary" (click)="onSignup(emailSingup.value,passwordSingup.value)">Submit</button>
+            <button type="submit" class="btn btn-primary" (click)="onSignup(emailSingup.value,passwordSingup.value)">Creaza</button>
+
+
+            <br><br>
+            <h2 style="color: red;">{{error}}</h2>
+            <br><br>
+            <h3 style="color: white;">Ai un cont?</h3>
+
+            <a routerLink="" class="first">Conecteaza-te</a>
 
           </form>
       </div>
