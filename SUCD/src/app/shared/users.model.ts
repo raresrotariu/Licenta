@@ -8,6 +8,7 @@ export class Users {
   Oras: string;
   Email:string;
   Abonament:string;
+  Masini:string;
 
 
 }

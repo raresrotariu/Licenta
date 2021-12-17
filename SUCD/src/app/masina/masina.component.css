@@ -1,0 +1,23 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.modal1{
+  background-color: #002533;
+}
+
+.cdk-overlay-pane{
+  width: 40% !important;
+}
+
+.mat-dialog-container{
+  background-color: #002533;
+
+}
+
+
+
+.modal-footer{
+  height: 50px;
+}

@@ -1,1 +1,48 @@
 <p>masina works!</p>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+      <form class="modal1" [formGroup]="modal" >
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="Marca" name="Marca"   placeholder="c" value="" >
+          <label for="floatingInput">Marca</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="Model" name="Model"   placeholder="c" value="" >
+          <label for="floatingInput">Model</label>
+        </div>
+
+      <div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="NrMasina" name="NrMasina"   placeholder="cc00ccc" value="" >
+			  <label for="floatingInput">Nr Masina</label>
+			</div>
+
+      <div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="CodMasina" name="codmasina"   placeholder="00000000000" value="" >
+			  <label for="floatingInput">Cod Masina</label>
+			</div>
+
+			<div class="form-floating mb-3">
+			  <input type="text" class="form-control" formControlName="Accidente" name="accidente"  placeholder="0" value="" >
+			  <label for="floatingInput">Accidente</label>
+			</div>
+
+
+        <form name="myform" method="post" action="">
+            <div class="form-group">
+                <div id="add_renter_footer" class="modal-footer">
+                    <button type="button" class="btn btn-secondary button" mat-dialog-close mat-button >Iesire</button>
+                    <button type="submit" class="btn btn-primary button" (click)="getData()"  >Salvare</button>
+                </div>
+            </div>
+          </form>
+        </form>
+    </body>
+</html>

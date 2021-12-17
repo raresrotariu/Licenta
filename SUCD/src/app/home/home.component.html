@@ -13,7 +13,7 @@
   Adaugare date personale
 </button>
 
-<button  class="btn btn-primary meniu" (click)="openModal2()" >
+<button *ngIf="merge?.Masini!=merge?.Abonament" class="btn btn-primary meniu" (click)="openModal2()" >
   Adaugare masina
 </button>
 
@@ -88,6 +88,30 @@
 
 <h1 style="color: white;">{{abonament}}</h1>
 
+<h2 style="color: white;" *ngIf="merge?.Masini==merge?.Abonament">Numarul maxim de masini inregistrate a fost atins</h2>
 
 
+<div *ngIf=verificare>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Marca</th>
+      <th scope="col">Model</th>
+      <th scope="col">Nr Masina</th>
+      <th scope="col">Cod Masina</th>
+      <th scope="col">Accidente</th>
+      <th scope="col">Stergere</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let book of books">
+    <td *ngIf="book.Email==merge?.Email">{{book.Marca}}</td>
+    <td *ngIf="book.Email==merge?.Email">{{book.Model}}</td>
+    <td *ngIf="book.Email==merge?.Email">{{book.NrMasina}}</td>
+    <td *ngIf="book.Email==merge?.Email">{{book.CodMasina}}</td>
+    <td *ngIf="book.Email==merge?.Email">{{book.Accident}}</td>
+    <td *ngIf="book.Email==merge?.Email"><button (click)="deleteCar(book.UID)" value={{book.UID}} name="button" class="btn btn-outline-danger">Stergere</button></td>
+  </tbody>
+</table>
+
+</div>
 

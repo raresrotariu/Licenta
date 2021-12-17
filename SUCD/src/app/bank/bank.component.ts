@@ -13,7 +13,7 @@ export class BankComponent implements OnInit {
 
   constructor(public router:Router,public data: DataService) { }
 
-  merge:Users|undefined
+  merge:Users|undefined;
    nr:any;
 
   ngOnInit(): void {
@@ -26,13 +26,13 @@ export class BankComponent implements OnInit {
   }
 
   updateData(){
-    if(history.state.da==1){
+    if(history.state.da==2){
       this.getCurrentData()
       this.merge!.Abonament=history.state.da;
       console.log(this.merge);
       this.data.updateData(this.merge!);
     }
-    if(history.state.da==2){
+    if(history.state.da==5){
       this.getCurrentData()
       this.merge!.Abonament=history.state.da;
       console.log(this.merge);
@@ -53,10 +53,10 @@ export class BankComponent implements OnInit {
   }
 
   pret(){
-    if(history.state.da==1){
+    if(history.state.da==2){
       this.nr=50
     }else
-    if(history.state.da==2){
+    if(history.state.da==5){
       this.nr=250
     }
   }

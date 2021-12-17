@@ -62,6 +62,7 @@ export class SingUpComponent implements OnInit {
         Judet: '',
         Oras: '',
         Abonament:'0',
+        Masini:'0',
       }
     }
 
