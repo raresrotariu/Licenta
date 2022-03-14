@@ -21,6 +21,8 @@ import { FirebaseService } from './services/firebase.service';
 import { BankComponent } from './bank/bank.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MasinaComponent } from './masina/masina.component';
+import { UppageComponent } from './uppage/uppage.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 
@@ -35,6 +37,8 @@ import { MasinaComponent } from './masina/masina.component';
     ModalComponent,
     BankComponent,
     MasinaComponent,
+    UppageComponent,
+    DetailComponent,
 
   ],
   imports: [
