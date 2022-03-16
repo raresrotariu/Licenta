@@ -15,7 +15,8 @@ const routes: Routes = [
   {   path:'app-home', component: HomeComponent },
   {   path:'app-bank',component:BankComponent},
   {   path:'app-uppage',component:UppageComponent},
-  {   path:'app-login',component:LoginComponent}
+  {   path:'app-login',component:LoginComponent},
+  {   path:'app-detail',component:DetailComponent}
 ];
 
 @NgModule({
