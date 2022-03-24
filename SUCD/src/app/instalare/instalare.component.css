@@ -1,0 +1,31 @@
+*{
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.meniu{
+  margin: 10px;
+}
+
+.mare{
+  width: 100%;
+  height: 500px;
+}
+
+.cutie{
+  width: 900px;
+  height: 600px;
+  margin: auto;
+}
+
+.poza{
+  width: 900px;
+  height: 600px;
+  margin: auto;
+}
+
+.instalare{
+  background-color: #15151E;
+  color:white;
+}

@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -17,8 +18,8 @@ import { Car } from '../shared/car.model';
 import { Item } from '../shared/item';
 import { map } from 'rxjs/operators';
 import { snapshotChanges } from '@angular/fire/compat/database';
-
-
+import { Filedata } from '../shared/filedata';
+import { getStorage, ref } from 'firebase/storage';
 
 
 @Component({
@@ -39,10 +40,14 @@ export class HomeComponent implements OnInit {
   books:Item[]
   actions:Item[]
 
+  selectedFiles!:FileList;
+  currentFile !: Filedata;
+  percentage : number=0;
+
   @Output() isLogout= new EventEmitter<void>()
   constructor(public firebaseService: FirebaseService,public router:Router,
     public firestore: AngularFirestore,public data: DataService,public dialog: MatDialog,
-    public cars:DataService,
+    public cars:DataService,//public storage : FirebaseStorage,
     ) { }
 
 
@@ -146,6 +151,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['app-bank'],{state:{da:2}});
   }
 
+  instalare(){
+    this.router.navigate(['app-instalare']);
+  }
+
   premium(){
     this.router.navigate(['app-bank'],{state:{da:5}});
   }
@@ -190,6 +199,29 @@ export class HomeComponent implements OnInit {
    this.firestore.collection('Cars').doc(value).delete()
    this.stergereMasini();
   }
+
+  selectFile(event:any){
+    this.selectedFiles = event.target.files;
+  }
+
+  uploadFile(){
+    const storage = getStorage();
+    this.currentFile= new Filedata(this.selectedFiles[0]);
+  //  const path = 'Uploads/'+this.currentFile.file.name;
+
+  //  const storageRef = ref(storage,path);
+  //  const uploadTask = storageRef.put(this.selectFile[0]);
+
+  //  uploadTask.snapshotChanges().pipe(finalize(()=>{
+
+  //  }).subscribe
+
+  //  )
+
+  }
+
+
+
 
 
 

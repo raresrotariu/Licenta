@@ -23,6 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MasinaComponent } from './masina/masina.component';
 import { UppageComponent } from './uppage/uppage.component';
 import { DetailComponent } from './detail/detail.component';
+import { InstalareComponent } from './instalare/instalare.component';
+import { DownpageComponent } from './downpage/downpage.component';
+
 
 
 
@@ -39,6 +42,8 @@ import { DetailComponent } from './detail/detail.component';
     MasinaComponent,
     UppageComponent,
     DetailComponent,
+    InstalareComponent,
+    DownpageComponent,
 
   ],
   imports: [

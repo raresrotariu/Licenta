@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Car } from '../shared/car.model';
 import { Users } from './../shared/users.model';
 import { map } from 'rxjs/operators';
+import{} from '@angular/fire/storage';
+import { Filedata } from '../shared/filedata';
 
 @Injectable({
   providedIn: 'root'
@@ -76,6 +78,30 @@ export class DataService {
 
     }
 
+
+    saveFile(fileObj:Filedata)
+    {
+      const fileData={
+        id:'',
+        name:fileObj.name,
+        url : fileObj.url,
+        email: fileObj.email,
+        cod: fileObj.cod,
+      }
+
+      fileData.id=this.afs.createId();
+
+      this.afs.collection('/Upload').add(fileData);
+
+
+
+    }
+
+
+
+    getFile(){
+      this.afs.collection('/Uploads').snapshotChanges();
+    }
 
 
 
