@@ -16,10 +16,11 @@ import { state } from '@angular/animations';
 import { MasinaComponent } from '../masina/masina.component';
 import { Car } from '../shared/car.model';
 import { Item } from '../shared/item';
-import { map } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
 import { snapshotChanges } from '@angular/fire/compat/database';
 import { Filedata } from '../shared/filedata';
-import { getStorage, ref } from 'firebase/storage';
+import { FirebaseStorage, getStorage, ref } from 'firebase/storage';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
   @Output() isLogout= new EventEmitter<void>()
   constructor(public firebaseService: FirebaseService,public router:Router,
     public firestore: AngularFirestore,public data: DataService,public dialog: MatDialog,
-    public cars:DataService,//public storage : FirebaseStorage,
+    public cars:DataService,public storage : AngularFireStorage,
     ) { }
 
 
@@ -202,23 +203,36 @@ export class HomeComponent implements OnInit {
 
   selectFile(event:any){
     this.selectedFiles = event.target.files;
+    console.log("selected file: ",this.selectedFiles.item);
   }
 
   uploadFile(){
-    const storage = getStorage();
-    this.currentFile= new Filedata(this.selectedFiles[0]);
-  //  const path = 'Uploads/'+this.currentFile.file.name;
+   // const storage = getStorage();
+   console.log(this.selectedFiles[0]);
+    this.currentFile = new Filedata(this.selectedFiles[0]);
+    console.log("1");
+    const path = 'Uploads/'+this.currentFile.file.name;
+    console.log("1");
+    const storageRef = this.storage.ref(path);
+    const uploadTask = storageRef.put(this.selectedFiles[0]);
 
-  //  const storageRef = ref(storage,path);
-  //  const uploadTask = storageRef.put(this.selectFile[0]);
+    uploadTask.snapshotChanges().pipe(finalize(()=>{
+      storageRef.getDownloadURL().subscribe(downloadLink =>{
+        this.currentFile.url=downloadLink;
+        this.currentFile.name=this.currentFile.file.name;
 
-  //  uploadTask.snapshotChanges().pipe(finalize(()=>{
+        this.data.saveFile(this.currentFile);
+      })
 
-  //  }).subscribe
 
-  //  )
-
+    })).subscribe((res:any)=>{
+      this.percentage=(res.bytesTransferred*100/res.res.toatlBytes);
+    },err=>{
+      console.log('Error occured');
+    }
+    )
   }
+
 
 
 

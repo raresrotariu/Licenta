@@ -85,8 +85,8 @@ export class DataService {
         id:'',
         name:fileObj.name,
         url : fileObj.url,
-        email: fileObj.email,
-        cod: fileObj.cod,
+    //    email: fileObj.email,
+     //   cod: fileObj.cod,
       }
 
       fileData.id=this.afs.createId();

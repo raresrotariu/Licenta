@@ -25,6 +25,19 @@ import { UppageComponent } from './uppage/uppage.component';
 import { DetailComponent } from './detail/detail.component';
 import { InstalareComponent } from './instalare/instalare.component';
 import { DownpageComponent } from './downpage/downpage.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 
 
 
@@ -55,6 +68,7 @@ import { DownpageComponent } from './downpage/downpage.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    AngularFireStorageModule,
     MatTableModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyDL3wmCFclCGqHcklMh_XImLBwYqXoVEZY",
@@ -65,10 +79,16 @@ import { DownpageComponent } from './downpage/downpage.component';
       appId: "1:1034313338206:web:473760fc9916c82f6013cf",
       measurementId: "G-C7K6JN4KH3"
     }),
-    NgbModule
+    NgbModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+
 
   ],
-  providers: [UsersService,FirebaseService
+  providers: [UsersService,FirebaseService, ScreenTrackingService,UserTrackingService
 
   ],
   bootstrap: [AppComponent]
