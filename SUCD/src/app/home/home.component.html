@@ -119,8 +119,29 @@
   <input type="file"  (change)="selectFile($event)">
   <button type="button" (click)="uploadFile()" >save</button>
   <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{percentage}}"
-    aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:percentage+'%'}"
-  > {{percentage}</div>
+    aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:percentage+'%'}"> {{percentage}}</div>
 </div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">File name</th>
+      <th scope="col">File size</th>
+      <th scope="col">File action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let fisier of fisiera" class="table-danger" >
+      <th>{{fisier.name}}</th>
+      <td></td>
+      <td>
+        <a href={{fisier.url}} class="btn btn-outline-info" type="button" download="">Download</a>
+        <a class="btn btn-outline-info" type="button" (click)="deleteFile(fisier)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
 
 <app-downpage></app-downpage>

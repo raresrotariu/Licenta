@@ -45,7 +45,14 @@ export class HomeComponent implements OnInit {
   currentFile !: Filedata;
   percentage : number=0;
 
+  listOfFiles : Filedata[]=[];
+
   @Output() isLogout= new EventEmitter<void>()
+  abc: import("@angular/fire/compat/firestore").DocumentChangeAction<unknown>[];
+
+  fisiere: Observable<Filedata[]>;
+  fisiera: Filedata[];
+
   constructor(public firebaseService: FirebaseService,public router:Router,
     public firestore: AngularFirestore,public data: DataService,public dialog: MatDialog,
     public cars:DataService,public storage : AngularFireStorage,
@@ -64,7 +71,7 @@ export class HomeComponent implements OnInit {
 
     this.getCurrentData()
     this.getCurrentDataCar()
-
+    this.getFilesnew()
 
   }
 
@@ -86,7 +93,7 @@ export class HomeComponent implements OnInit {
     var carowner= from(this.cars.getDataCar())
     carowner.subscribe(carown=>{
      this.car=carown;
-     console.log(this.car)
+    // console.log(this.car)
     })
 
     let i:number =0;
@@ -112,7 +119,7 @@ export class HomeComponent implements OnInit {
     i=0;
 
         var ownerId = JSON.parse(localStorage.getItem('user')||'{}').uid;
-        console.log(ownerId);
+        //console.log(ownerId);
          this.firestore.collection('Cars').get().subscribe((snapshot)=>{
            snapshot.forEach(doc=>{
              books[i].UID=doc.id;
@@ -121,7 +128,7 @@ export class HomeComponent implements OnInit {
            })
          })
 
-         console.log(books)
+        // console.log(books)
 
 
     })
@@ -206,7 +213,7 @@ export class HomeComponent implements OnInit {
     console.log("selected file: ",this.selectedFiles.item);
   }
 
-  uploadFile(){
+  async uploadFile(){
    // const storage = getStorage();
    console.log(this.selectedFiles[0]);
     this.currentFile = new Filedata(this.selectedFiles[0]);
@@ -216,25 +223,60 @@ export class HomeComponent implements OnInit {
     const storageRef = this.storage.ref(path);
     const uploadTask = storageRef.put(this.selectedFiles[0]);
 
-    uploadTask.snapshotChanges().pipe(finalize(()=>{
+     uploadTask.snapshotChanges().pipe(finalize(()=>{
       storageRef.getDownloadURL().subscribe(downloadLink =>{
         this.currentFile.url=downloadLink;
         this.currentFile.name=this.currentFile.file.name;
 
-        this.data.saveFile(this.currentFile);
-      })
-
-
+         this.data.saveFile(this.currentFile);
+      },)
     })).subscribe((res:any)=>{
-      this.percentage=(res.bytesTransferred*100/res.res.toatlBytes);
+      //this.percentage=(res.bytesTransferred*100/res.res.totalBytes);
     },err=>{
       console.log('Error occured');
     }
     )
   }
 
+  getAllFiles(){
+    this.data.getFile().subscribe(res =>{
+      this.listOfFiles=res.map((e:any)=>{
+        const file = e.payload.doc.file();
+        file.id= e.payload.doc.id;
+       console.log(file);
+        return file;
+      });
+    },err=>{
+      console.log('Error fetching filedata');
+    })
+  }
 
 
+  getFilesnew(){
+    this.fisiere = this.firestore.collection<Filedata>('Upload').valueChanges()
+    console.log(this.fisiere);
+
+    this.fisiere.subscribe(fisiera=>{
+
+      this.fisiera=fisiera
+      console.log(fisiera[0])
+    })
+
+
+  }
+
+  deleteFile(fisiera :Filedata){
+    if(window.confirm('Are you sure you want to delate'+fisiera.name+'?')){
+      this.data.deleteFile(fisiera);
+
+      //this.ngOnInit();
+    }
+  }
+
+  deleteFile2(value:string|undefined){
+    console.log(value)
+   this.firestore.collection('Upload').doc(value).delete()
+  }
 
 
 

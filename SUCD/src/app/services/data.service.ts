@@ -6,6 +6,7 @@ import { Users } from './../shared/users.model';
 import { map } from 'rxjs/operators';
 import{} from '@angular/fire/storage';
 import { Filedata } from '../shared/filedata';
+import { deleteObject, getStorage, ref } from 'firebase/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class DataService {
 
   constructor(public firebaseAuth : AngularFireAuth,
     public afs: AngularFirestore,
+    public fireStorage : AngularFirestore,
     ) { }
 
 
@@ -27,7 +29,6 @@ export class DataService {
         else
         console.log("Nu exista");
       })
-
     }
 
     updateData(Users:Users){
@@ -44,8 +45,6 @@ export class DataService {
         Masini:Users.Masini,
 
       })
-
-
     }
 
     getDataCar(){
@@ -78,7 +77,6 @@ export class DataService {
 
     }
 
-
     saveFile(fileObj:Filedata)
     {
       const fileData={
@@ -90,20 +88,29 @@ export class DataService {
       }
 
       fileData.id=this.afs.createId();
-
-      this.afs.collection('/Upload').add(fileData);
-
-
-
+   //   this.afs.collection('Upload').add(fileData);
+      this.afs.collection('Upload').doc(fileData.id).set({
+        id:fileData.id,
+        name:fileObj.name,
+        url : fileObj.url,
+      })
     }
-
-
 
     getFile(){
-      this.afs.collection('/Uploads').snapshotChanges();
+      return this.afs.collection('/Uploads').snapshotChanges();
     }
 
-
+    deleteFile(fileMeta: Filedata){
+     // console.log(fileMeta.id);
+      this.afs.collection('Upload').doc(fileMeta.id).delete();
+      const storage = getStorage();
+      const deserRef= ref(storage,'Uploads/'+fileMeta.name);
+      deleteObject(deserRef).then(()=>{
+        console.log("stergere cu succes "+fileMeta.name)
+      }).catch((error)=>{
+        console.log("Nu a mers stergerea "+fileMeta.name)
+      })
+    }
 
 
 }
