@@ -1,0 +1,30 @@
+<p>admin-data works!</p>
+<div *ngIf="hero">
+<h2>Nume: {{hero?.Nume}}   Prenume: {{hero?.Prenume}}</h2>
+<h2>Judet: {{hero?.Judet}}   Oras:{{hero?.Oras}}   Adresa:{{hero?.Adresa}} </h2>
+<h2>Email: {{hero?.Email}}</h2>
+<h2>Varsta: {{hero?.Varsta}}</h2>
+<h2>Masini: {{hero?.Masini}}</h2>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Marca</th>
+      <th scope="col">Model</th>
+      <th scope="col">Nr Masina</th>
+      <th scope="col">Cod Masina</th>
+      <th scope="col">Accidente</th>
+      <th scope="col">Stergere</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let book of books">
+    <td *ngIf="book.Email==hero?.Email">{{book.Marca}}</td>
+    <td *ngIf="book.Email==hero?.Email">{{book.Model}}</td>
+    <td *ngIf="book.Email==hero?.Email">{{book.NrMasina}}</td>
+    <td *ngIf="book.Email==hero?.Email">{{book.CodMasina}}</td>
+    <td *ngIf="book.Email==hero?.Email">{{book.Accident}}</td>
+    <td *ngIf="book.Email==hero?.Email"><button value={{book.UID}} name="button" class="btn btn-outline-danger">Stergere</button></td>
+  </tbody>
+</table>
+
+</div>

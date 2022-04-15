@@ -1,0 +1,20 @@
+<p>admin-page works!</p>
+
+<button class="btn btn-outline-danger meniu" (click)="logout()" >Logout</button>
+
+
+
+
+<div >
+  <div class="row">
+    <div class="col-4">col-4
+      <div class="container" *ngFor="let user of user">
+        <button type="button" class="btn btn-info" (click)="setdata(user)">{{user.Nume}} {{user.Prenume}}</button>
+        <br><br>
+      </div>
+    </div>
+    <div class="col-8">col-8
+      <app-admin-data [hero] = "child"></app-admin-data>
+    </div>
+  </div>
+</div>

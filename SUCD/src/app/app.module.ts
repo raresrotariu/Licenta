@@ -37,6 +37,8 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminDataComponent } from './admin-data/admin-data.component';
 
 
 
@@ -57,6 +59,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     DetailComponent,
     InstalareComponent,
     DownpageComponent,
+    AdminPageComponent,
+    AdminDataComponent,
 
   ],
   imports: [

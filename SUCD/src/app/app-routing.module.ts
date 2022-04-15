@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDataComponent } from './admin-data/admin-data.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BankComponent } from './bank/bank.component';
 import { DetailComponent } from './detail/detail.component';
 import { DownpageComponent } from './downpage/downpage.component';
@@ -21,6 +23,8 @@ const routes: Routes = [
   {   path:'app-detail',component:DetailComponent},
   {   path:'app-instalare',component:InstalareComponent},
   {   path:'app-downpage',component:DownpageComponent},
+  {   path:'app-admin',component:AdminPageComponent},
+  {   path:'app-admin-data',component:AdminDataComponent},
 ];
 
 @NgModule({

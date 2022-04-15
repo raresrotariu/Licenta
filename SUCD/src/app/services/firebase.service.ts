@@ -37,6 +37,7 @@ export class FirebaseService {
          Oras: "",
          Abonament:"0",
          Masini:"",
+         Admin:"0",
       })
     })
   }

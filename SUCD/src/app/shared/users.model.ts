@@ -9,6 +9,7 @@ export class Users {
   Email:string;
   Abonament:string;
   Masini:string;
+  Admin:string;
 
 
 }
