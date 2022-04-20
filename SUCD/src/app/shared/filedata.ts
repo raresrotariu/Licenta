@@ -3,7 +3,8 @@ export class Filedata {
   name:string = '';
   file:File ;
   url:string = '';
- // email:string = '';
+  email:string = '';
+  citit:string='';
  // cod:string = '';
 
   constructor(file:File){

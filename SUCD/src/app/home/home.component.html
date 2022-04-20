@@ -114,31 +114,33 @@
 </table>
 
 </div>
-
+<br><br><br><br>
+<!--
 <div>
   <input type="file"  (change)="selectFile($event)">
-  <button type="button" (click)="uploadFile()" >save</button>
+  <button type="button" (click)="uploadFile(merge?.Email)" >save</button>
   <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{percentage}}"
     aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:percentage+'%'}"> {{percentage}}</div>
 </div>
+-->
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">File name</th>
-      <th scope="col">File size</th>
       <th scope="col">File action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let fisier of fisiera" class="table-danger" >
-      <th>{{fisier.name}}</th>
-      <td></td>
-      <td>
-        <a href={{fisier.url}} class="btn btn-outline-info" type="button" download="">Download</a>
-        <a class="btn btn-outline-info" type="button" (click)="deleteFile(fisier)">Delete</a>
-      </td>
-    </tr>
+    <ng-container *ngFor="let fisier of fisiera">
+      <tr *ngIf="fisier.email==merge?.Email"  [ngClass]="{'bg-danger':fisier.citit==='0','bg-success':fisier.citit==='1'}"  >
+        <th >{{fisier.name}} </th>
+        <td>
+          <a href={{fisier.url}} class="btn btn-secondary spatiu10" type="button" download="" (click)="documentdeschis(fisier)">Download</a>
+          <a class="btn btn-warning spatiu10" type="button" (click)="deleteFile(fisier)">Delete</a>
+        </td>
+      </tr>
+    </ng-container>
   </tbody>
 
 </table>

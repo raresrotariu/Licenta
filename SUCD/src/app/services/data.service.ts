@@ -83,8 +83,8 @@ export class DataService {
         id:'',
         name:fileObj.name,
         url : fileObj.url,
-    //    email: fileObj.email,
-     //   cod: fileObj.cod,
+        email: fileObj.email,
+        citit: fileObj.citit,
       }
 
       fileData.id=this.afs.createId();
@@ -93,6 +93,18 @@ export class DataService {
         id:fileData.id,
         name:fileObj.name,
         url : fileObj.url,
+        email:fileObj.email,
+        citit:fileObj.citit,
+      })
+    }
+
+    updateFile(fileObj:Filedata){
+      this.afs.collection('Upload').doc(fileObj.id).set({
+        id:fileObj.id,
+        name:fileObj.name,
+        url : fileObj.url,
+        email:fileObj.email,
+        citit:fileObj.citit,
       })
     }
 

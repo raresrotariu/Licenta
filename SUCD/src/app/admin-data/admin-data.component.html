@@ -1,7 +1,7 @@
 <p>admin-data works!</p>
 <div *ngIf="hero">
 <h2>Nume: {{hero?.Nume}}   Prenume: {{hero?.Prenume}}</h2>
-<h2>Judet: {{hero?.Judet}}   Oras:{{hero?.Oras}}   Adresa:{{hero?.Adresa}} </h2>
+<h2>Judet: {{hero?.Judet}}   Oras: {{hero?.Oras}}   Adresa: {{hero?.Adresa}} </h2>
 <h2>Email: {{hero?.Email}}</h2>
 <h2>Varsta: {{hero?.Varsta}}</h2>
 <h2>Masini: {{hero?.Masini}}</h2>
@@ -25,6 +25,39 @@
     <td *ngIf="book.Email==hero?.Email">{{book.Accident}}</td>
     <td *ngIf="book.Email==hero?.Email"><button value={{book.UID}} name="button" class="btn btn-outline-danger">Stergere</button></td>
   </tbody>
+</table>
+
+
+
+
+<div>
+  <div class="mb-3">
+    <input class="form-control" type="file" (change)="selectFile($event)" id="formFileMultiple" multiple>
+  </div>
+  <button type="button" (click)="uploadFile(hero?.Email)" class="btn btn-warning" >Save</button>
+  <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{percentage}}"
+    aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:percentage+'%'}"> {{percentage}}</div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">File name</th>
+      <th scope="col">File action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let fisier of fisiera">
+    <tr *ngIf="fisier.email==hero?.Email"  [ngClass]="{'bg-danger':fisier.citit==='0','bg-success':fisier.citit==='1'}"  >
+      <th >{{fisier.name}}</th>
+      <td>
+        <a href={{fisier.url}} class="btn btn-secondary spatiu10" type="button" download="">Download</a>
+        <a class="btn btn-warning spatiu10" type="button" (click)="deleteFile(fisier)">Delete</a>
+      </td>
+    </tr>
+  </ng-container>
+  </tbody>
+
 </table>
 
 </div>

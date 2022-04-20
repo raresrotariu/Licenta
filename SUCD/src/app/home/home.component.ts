@@ -23,6 +23,7 @@ import { FirebaseStorage, getStorage, ref } from 'firebase/storage';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -213,7 +214,7 @@ export class HomeComponent implements OnInit {
     console.log("selected file: ",this.selectedFiles.item);
   }
 
-  async uploadFile(){
+  async uploadFile(email:string|undefined){
    // const storage = getStorage();
    console.log(this.selectedFiles[0]);
     this.currentFile = new Filedata(this.selectedFiles[0]);
@@ -227,6 +228,10 @@ export class HomeComponent implements OnInit {
       storageRef.getDownloadURL().subscribe(downloadLink =>{
         this.currentFile.url=downloadLink;
         this.currentFile.name=this.currentFile.file.name;
+        if(email!=undefined){
+        this.currentFile.email=email;
+        }
+        this.currentFile.citit='0';
 
          this.data.saveFile(this.currentFile);
       },)
@@ -278,6 +283,11 @@ export class HomeComponent implements OnInit {
    this.firestore.collection('Upload').doc(value).delete()
   }
 
+  documentdeschis(fisier:Filedata){
+    fisier.citit='1';
+    this.data.updateFile(fisier);
+    console.log(fisier);
+  }
 
 //data 21 14:00
 
