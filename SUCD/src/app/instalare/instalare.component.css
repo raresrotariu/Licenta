@@ -17,20 +17,24 @@
 
 
 .instalare{
-  background-color: #15151E;
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
   color:white;
 }
 
 .tot{
-  background-color: #15151E;
-  text-align: center;
+  
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
+	text-align: center;
   margin: auto;
 }
 
 .navbar{
-  background-color: #3f3f5a ;
   width: 90%;
   margin: auto;
+  border-bottom: 2px;
+  border-bottom-color: #3f3f5a;
+  border-bottom-style: solid;
+  background: none !important;
 }
 
 .navbar_1{

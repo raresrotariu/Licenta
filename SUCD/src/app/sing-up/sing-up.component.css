@@ -21,44 +21,22 @@ body{
   padding-bottom: 100%;
 }
 
-nav{
-  margin-top: 50px;
-}
 
-nav a {
-    padding: 1rem;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #e8e8e8;
-    color: #3d3d3d;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    padding: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-
-  nav a:hover {
-    color: white;
-    background-color: #42545C;
-  }
-
-  nav a.active {
-    background-color: black;
-  }
 
   .tot{
-    background-color: #15151E;
-    text-align: center;
-    margin: auto;
+    
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
+	text-align: center;
+  margin: auto;
   }
 
   .navbar{
-    background-color: #3f3f5a ;
     width: 90%;
     margin: auto;
+    border-bottom: 2px;
+    border-bottom-color: #3f3f5a;
+    border-bottom-style: solid;
+    background: none !important;
   }
   
   .navbar_1{

@@ -2,3 +2,34 @@
   margin: 0;
   padding: 0;
 }
+
+.alb{
+  color: white;
+  font-size: 25px;
+}
+
+
+
+
+.tot{
+  
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
+
+	text-align: center;
+  margin: auto;
+}
+
+.spatiu{
+  width: 100px;
+  height: 100vh;
+}
+
+.navbar{
+  width: 90%;
+  margin: auto;
+  border-bottom: 2px;
+  border-bottom-color: #3f3f5a;
+  border-bottom-style: solid;
+  background: none !important;
+}
+

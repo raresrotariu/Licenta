@@ -1,20 +1,42 @@
-<p>admin-page works!</p>
 
-<button class="btn btn-outline-danger meniu" (click)="logout()" >Logout</button>
-
+<div class="tot">
 
 
 
-<div >
+<br><br>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="background-color: transparent;">
+    <img class="navbar-brand" id="logo" src="assets/SUCD1.png" width="150px" height="50px" margin="10px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+        <li class="nav-item ">
+          <button class="btn btn-outline-danger meniu" (click)="logout()" >Log out</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div class="container">
   <div class="row">
-    <div class="col-3">col-4
+    <div class="col-sm-4"><h2 class="alb">Conturi active:</h2>
       <div class="container" *ngFor="let user of user">
         <button type="button" class="btn btn-info" (click)="setdata(user)">{{user.Nume}} {{user.Prenume}}</button>
         <br><br>
       </div>
     </div>
-    <div class="col-8">col-8
-      <app-admin-data [hero] = "child"></app-admin-data>
+    <div class="col-sm-8"><h2 class="alb">Date cont:</h2>
+     <app-admin-data [hero] = "child"></app-admin-data>
     </div>
   </div>
+</div>
+
+<div class="spatiu">
+
+</div>
+
+<app-downpage></app-downpage>
+
 </div>

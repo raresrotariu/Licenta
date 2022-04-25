@@ -1,3 +1,9 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+
 .meniu{
   margin: 10px;
 }
@@ -23,17 +29,16 @@
 }
 
 .navbar{
-  
-}
-
-.navbar_2{
   width: 90%;
   margin: auto;
   border-bottom: 2px;
   border-bottom-color: #3f3f5a;
   border-bottom-style: solid;
-
+  background: none !important;
 }
+
+
+
 
 .navbar_1{
   width: 100%;
