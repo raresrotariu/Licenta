@@ -1,5 +1,10 @@
 .downpage{
   margin-top: 100px;
-  background-color:  #3f3f5a  ;
+  width: 90vw;
   color: white;
+  width: 90%;
+  margin: auto;
+  border-top: 2px;
+  border-top-color: #3f3f5a;
+  border-top-style: solid;
 }

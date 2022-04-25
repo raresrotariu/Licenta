@@ -4,9 +4,7 @@
   background-color: #002533;
 }
 
-.cdk-overlay-pane{
-  width: 40% !important;
-}
+
 
 .mat-dialog-container{
   background-color: #002533;
@@ -17,4 +15,22 @@
 
 .modal-footer{
   height: 50px;
+}
+
+
+@media only screen and (min-width : 480px) {
+  .cdk-overlay-pane{
+    width: 100% !important;
+  }
+}
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    /* your desktop css */
+    .cdk-overlay-pane{
+      width: 40% !important;
+
+    }
 }

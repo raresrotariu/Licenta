@@ -7,12 +7,48 @@
   height: 500px;
 }
 
+
 .cutie{
+  /*
   width: 900px;
   height: 600px;
+  */
+  width: 90%;
+  height: 60%;
   margin: auto;
 }
 
 .text{
   color:white;
 }
+
+.navbar{
+  
+}
+
+.navbar_2{
+  width: 90%;
+  margin: auto;
+  border-bottom: 2px;
+  border-bottom-color: #3f3f5a;
+  border-bottom-style: solid;
+
+}
+
+.navbar_1{
+  width: 100%;
+  margin: auto;
+  text-align: right;
+
+}
+
+.tot{
+  
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
+	text-align: center;
+  margin: auto;
+}
+
+    
+
+

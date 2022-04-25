@@ -13,19 +13,64 @@
   height: 500px;
 }
 
-.cutie{
-  width: 900px;
-  height: 600px;
-  margin: auto;
-}
 
-.poza{
-  width: 900px;
-  height: 600px;
-  margin: auto;
-}
+
 
 .instalare{
   background-color: #15151E;
   color:white;
+}
+
+.tot{
+  background-color: #15151E;
+  text-align: center;
+  margin: auto;
+}
+
+.navbar{
+  background-color: #3f3f5a ;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar_1{
+  width: 50%;
+  margin: auto;
+}
+.poza{
+  max-width: 600px;
+  max-height: 300px;
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 320px) {
+  .poza{
+    width: 90% ;
+    height: 200px ;
+    margin: auto;
+  }
+  .cutie{
+    /*
+    width: 900px;
+    height: 600px;
+    */
+    width: 90%;
+    height: 60%;
+    margin: auto;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    /* your desktop css */
+    .poza{
+      width: 600px;
+      height: 300px;
+      margin: auto;
+    }
+    .cutie{
+      width: 900px;
+      height: 600px;
+      margin: auto;
+    }
 }

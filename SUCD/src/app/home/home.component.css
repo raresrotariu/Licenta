@@ -68,3 +68,20 @@ nav{
   margin-left: 10px !important;
   margin-right: 10px !important;
 }
+
+.tot{
+  background-color: #15151E;
+  text-align: center;
+  margin: auto;
+}
+
+.navbar{
+  background-color: #3f3f5a ;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar_1{
+  width: 50%;
+  margin: auto;
+}

@@ -48,3 +48,42 @@ nav a {
   nav a.active {
     background-color: black;
   }
+
+
+
+  .tot{
+    background-color: #15151E;
+    text-align: center;
+    margin: auto;
+  }
+
+  .navbar{
+    background-color: #3f3f5a ;
+    width: 90%;
+    margin: auto;
+  }
+  
+  .navbar_1{
+    width: 50%;
+    margin: auto;
+  }
+
+
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+      .input{
+        width: 100%;
+      }
+    }
+    
+   
+    
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+        /* your desktop css */
+        .input{
+          width: 50%;
+          margin: auto;
+        }
+    }
