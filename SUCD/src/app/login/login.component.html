@@ -48,6 +48,9 @@
           </div>
           <div class="col-10">
             <form>
+              <div *ngIf="firebaseService.loginerror" class="alert alert-danger" role="alert">
+                Cont incorect. Mail sau parola incorecte.
+              </div>
                 <div class="form-floating mb-3 input" >
                   <input type="text" class="form-control" #mail id="exampleInputEmail1" placeholder="name@example.com">
                   <label for="exampleInputEmail1" >Email address:</label>

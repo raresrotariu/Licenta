@@ -9,16 +9,21 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class FirebaseService {
 
   isLoggedIn=false;
+  loginerror=0;
 
   constructor(public fireservices : AngularFirestore,public firebaseAuth: AngularFireAuth) { }
+  
   async singin(email: string, password : string){
+    this.loginerror=0;
     await this.firebaseAuth.signInWithEmailAndPassword(email,password)
     .then(res=>{
       this.isLoggedIn = true
       localStorage.setItem('user',JSON.stringify(res.user))
-
     })
-
+    .catch((error)=>{
+      this.loginerror=1;
+      console.log("nu mergeee");
+    })
   }
 
   async singup(email: string, password : string){

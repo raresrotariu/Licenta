@@ -4,6 +4,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { DataService } from '../services/data.service';
 import { from, Observable } from 'rxjs';
 import { Users } from '../shared/users.model';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -14,10 +16,11 @@ export class LoginComponent implements OnInit {
 
   isSignedIn=false
   admins:Users|undefined;
+  //loginerror:any=0;
+  isLoggedIn=false;
 
 
-
-  constructor(public firebaseService : FirebaseService, public router:Router, public data:DataService) {
+  constructor(public firebaseService : FirebaseService, public router:Router, public data:DataService,public firebaseAuth: AngularFireAuth) {
 
   }
 
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
 
   async onSingin(email:string,password:string){
     await this.firebaseService.singin(email,password)
+   // await this.verificareSingin(email,password)
     console.log(email)
     console.log(password)
     if(this.firebaseService.isLoggedIn)
@@ -40,8 +44,27 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  //
+  //async verificareSingin(email:string,password:string){
+   // this.loginerror=0;
+   // await this.firebaseAuth.signInWithEmailAndPassword(email,password)
+   // .then(res=>{
+   //   this.isLoggedIn = true
+   //   localStorage.setItem('user',JSON.stringify(res.user))
+      
+   // })
+   // .catch((error)=>{
+    //  this.loginerror=1;
+   //   console.log("nu mergeee");
+   // })
+
+ // }
+
+
+
   async adminSingin(email:string,password:string){
     await this.firebaseService.singin(email,password)
+    //await this.verificareSingin(email,password)
     console.log(email)
     console.log(password)
     if(this.firebaseService.isLoggedIn){
@@ -51,10 +74,7 @@ export class LoginComponent implements OnInit {
       console.log(this.admins);
       if(this.admins?.Admin=='1')
       {this.router.navigate(['app-admin'])}
-      else
-      {
-        console.log("Nu e admin");
-      }
+      
 
     })
     }
