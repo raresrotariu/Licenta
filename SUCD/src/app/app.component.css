@@ -14,6 +14,8 @@ h1{
 
 body{
 	background-color: #15151E;
+  background-image: linear-gradient(to bottom right, #15151E, #3f3f5a);
+
 	text-align: center;
   margin: auto;
 }

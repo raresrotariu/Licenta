@@ -5,21 +5,17 @@ import { from, Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Users } from 'src/app/shared/users.model';
-import { state } from '@angular/animations';
 import { MasinaComponent } from '../masina/masina.component';
 import { Car } from '../shared/car.model';
 import { Item } from '../shared/item';
 import { finalize, map } from 'rxjs/operators';
-import { snapshotChanges } from '@angular/fire/compat/database';
 import { Filedata } from '../shared/filedata';
-import { FirebaseStorage, getStorage, ref } from 'firebase/storage';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 

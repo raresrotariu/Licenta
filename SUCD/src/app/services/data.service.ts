@@ -31,6 +31,22 @@ export class DataService {
       })
     }
 
+    updateData2(Users:Users){
+      var ownerID = JSON.parse(localStorage.getItem('user')||'{}');
+      console.log(ownerID);
+      this.afs.collection('Users').doc(ownerID.uid).update({
+        Nume:Users.Nume,
+        Prenume:Users.Prenume,
+        Adresa:Users.Adresa,
+        Judet:Users.Judet,
+        Oras:Users.Oras,
+        Varsta:Users.Varsta,
+        Abonament:Users.Abonament,
+
+
+      })
+    }
+
     updateData(Users:Users){
       var ownerID = JSON.parse(localStorage.getItem('user')||'{}');
       console.log(ownerID);
@@ -43,6 +59,7 @@ export class DataService {
         Varsta:Users.Varsta,
         Abonament:Users.Abonament,
         Masini:Users.Masini,
+
 
       })
     }

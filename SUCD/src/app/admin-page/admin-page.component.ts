@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { User } from 'firebase/auth';
 import { from, Observable } from 'rxjs';
 import { DataService } from '../services/data.service';
 import { FirebaseService } from '../services/firebase.service';

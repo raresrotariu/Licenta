@@ -12,7 +12,7 @@ export class FirebaseService {
   loginerror=0;
 
   constructor(public fireservices : AngularFirestore,public firebaseAuth: AngularFireAuth) { }
-  
+
   async singin(email: string, password : string){
     this.loginerror=0;
     await this.firebaseAuth.signInWithEmailAndPassword(email,password)
@@ -50,6 +50,7 @@ export class FirebaseService {
   logout(){
     this.firebaseAuth.signOut()
     localStorage.removeItem('user')
+    this.isLoggedIn=false;
   }
 
 

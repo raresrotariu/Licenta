@@ -58,8 +58,9 @@ export class ModalComponent implements OnInit {
     this.Userobj.Abonament=this.modal.value.Abonament;
 
     console.log(this.Userobj);
-    this.dataservice.updateData(this.Userobj);
+    this.dataservice.updateData2(this.Userobj);
     this.dialogRef.close();
+
 
   }
 
